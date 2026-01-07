@@ -1,0 +1,241 @@
+---
+title: "ADD IN MEANINGFUL TITLE HERE"
+author: "A1 GROUP 26: Bhavikaa Goenka and Mariana Garcia Mejia"
+subtitle: "STA304 - Fall 2025 - Assignment 1"
+format: pdf
+editor: visual
+---
+
+```{r, include = FALSE}
+
+# Here you can load in and clean the data (you may need to do the cleaning in a separate R script - this is up to you). 
+library(tidyverse)
+
+
+# You may need additional chunks, in case you want to include some of the cleaning output.
+
+```
+
+# 1 Introduction
+
+Access to higher education is shaped not only by talent and ambition, but also by the resources and support systems available to students in high school. Research has shown that aside from socioeconomic status, which remains the greatest predictor of whether a student applies for college (Kennedy, Huerta & Richards, 2007), high school resources play a crucial role in shaping students’ postsecondary destinations (Klugman, 2012). From offering the right courses to providing guidance counselors, the presence of support resources has shown to mediate the effect of family background on college enrolment. However, not all high schools provide equal resources, leaving a gap between students who are well-supported in their postsecondary journeys and those who must navigate the process with limited guidance.
+
+STEMBuddies is a Canadian non-profit organization dedicated to bridging this gap through the development of free resources to ensure all high school students, regardless of background, have equal access to the tools needed to pursue careers in STEM. One of their main resources is the High School Handbook, available through the STEMBuddies website, which serves as a comprehensive guide to navigating the academic and extracurricular requirements for university admission. The Handbook provides information on the application process, scholarships, and even international opportunities. Although it compiles a lot of information in an organized format, there is still potential to further tailor it to student needs.
+
+To evaluate the effectiveness of the Handbook and identify areas for improvement, our group designed a survey directed to Ontario high school students, as the Handbook primarily focuses on Ontario institutions. The survey will examine the challenges students face when preparing for postsecondary studies, explore alternative formatting preferences for the Handbook and investigate whether students would be interested in learning more about institutions outside Ontario. While this study will not involve the collection of real responses, simulated results will provide insight into how STEMBuddies can refine the Handbook to remain a practical resource for high school students. Our study will include some exploratory data analysis through visualization, as well as statistical analysis using confidence intervals to estimate, for example, the proportion of students interested in having the Handbook in a video format, rather than its current PDF format.
+
+# 2 Survey Showcasing
+
+## 2.1 Survey Description
+
+The survey was created using Google Forms and can be accessed through: <https://forms.gle/h7CK7w2PBanHDxGA9>. All responses are collected anonymously to ensure students feel comfortable sharing their perspectives. The questions centered on three themes: student backgrounds and intended pathways, challenges faced in preparing for post-secondary education, and preferences for handbook delivery format. These themes were chosen to focus on improving the existing material and provide suggestions on new ideas for STEMBuddies (e.g. offering an alternative format of the Handbook). To create our answer categories we referred directly to the existing content in the Handbook to capture specific areas for improvement. For example, categories such as course selection, extracurricular involvement, admissions processes, financial assistance, and study skills were included because they align closely with the handbook’s sections. Lastly, all of the survey questions were designed with single-choice responses to ensure clarity, and ease of analysis, even though this limited the depth of qualitative feedback.
+
+## 2.2 Testing My Survey
+
+To test the survey, we asked three high school students (Grades 9, 10 and 12) to complete it and provide feedback on the clarity of wording, available options, and overall structure. Their responses were then compared with our expectations for how the data should look when analyzed. While only a small pilot, it provided valuable insights into the usability of the survey and confirmed that the data could be collected in a structured and interpretable way. One of the most useful suggestions was to add a “Career Interest” option in the question about challenges faced by students, an option we hadn’t previously considered.
+
+## 2.3 Showcasing Relevant Question(s)
+
+In this Section we will showcase the questions relevant to our analysis, the reasoning behind them as well as their benefits and limitations.
+
+***1. What grade are you in?*** *Options: Grade 9, Grade 10, Grade 11, Grade 12*
+
+The first question: “What grade are you in? (Grade 9, Grade 10, Grade 11, Grade 12).”, will be used to undarstand the age group of respondents, which will be critical when interpreting subsequent answers. For instance, challenges such as course selection may be more relevant to Grade 9 students, while financial assistance concerns are likely more pressing for Grade 12 students. This categorization makes it possible to compare responses across different educational stages and tailor recommendations to the needs of each group. Although simple in design, the question provides a useful baseline variable for stratifying responses, and it directly connects to the handbook’s structure, which targets different grades with specific guidance.
+
+***2. What is the most important challenge you currently face in preparing for post-secondary?*** *Options: Career Interests, Course selection and required GPA, Study techniques and time management, Extracurricular and volunteer opportunities, Admissions process (OUAC, supplementary applications, etc.), Financial assistance (e.g., scholarships, bursaries, OSAP)*
+
+This question was selected because it ties directly to the core purpose of the handbook: addressing the main challenges students encounter in their educational journey. The benefits of this design include clear alignment with handbook content, straightforward language, and ease of comparison across respondents. However, the single-choice limitation overlooks potential overlap between categories, as many students face more than one challenge at a time. These limitations were intentional, as they allowed us to isolate the primary issue students prioritize, ensuring the results remain focused and actionable for handbook improvements.
+
+***3. In what format would you find the High School Handbook most helpful?*** *Options: Printed/PDF text handbook, YouTube videos (short explainers, step-by-step guides)*
+
+The third and last question focuses on how students prefer to access the handbook. This question was included to gather actionable insights about delivery methods and understand the needs of our population, as some students may have accesibility needs or specific prefences. Its strength lies in its direct relevance to how STEMBuddies can adapt resources to student preferences, however, the limitation is that students may prefer multiple or newer formats not listed (e.g. Podcast). Once again, our aim is to offer concrete guidance for possible improvements, which is we kept our options simple.
+
+# 3 Procedure
+
+## 3.1 Proposed Sampling Procedure
+
+To collect data using the survey, we recommend that STEMBuddies leverage their existing digital channels, as this approach is far more time-efficient than visiting individual high schools and seeking permission to administer the survey in person. Email, in particular, provides a direct and scalable way to distribute the survey, allowing it to reach hundreds of students at once. Since the Handbook primarily focuses on Ontario universities and colleges, the target population would be Ontario high school students. A suitable sampling frame would consist of students for whom STEMBuddies already has email contact information, with the final sample being those who choose to respond. The main limitation of this method is that many high school students do not check their email regularly, which may result in a low response rate. However, if STEMBuddies has built a large email list over time, the chances of collecting sufficient responses increase significantly.
+
+The main strength of this sampling procedure is its efficiency, as distributing the survey by email avoids the time and administrative burden of visiting schools while still reaching hundreds of students at once. However, several errors and biases may affect the data. Non-response bias is a concern since many high school students do not check their emails regularly; this could be mitigated by sending reminders or offering small incentives to those who fill out the survey. Response bias may occur if students misinterpret questions or provide socially desirable answers, which can be reduced with clear wording and anonymous responses. Some sampling error is unavoidable because the sample is not the full population, but increasing the sample size by doingh outreach in select schools can help. Finally, selection bias and exclusion of groups are risks, as only students in the STEMBuddies email database can participate. To tackle this, STEMBuddies could broaden recruitment through other digital channels (e.g., social media) to improve representativeness.
+
+## 3.2 Simulation
+
+To generate the data for our analysis, we simulated responses in R using the sample() function, assigning probabilities to each option for every survey question. Because our survey does not draw from an underlying probability distribution, we based these probabilities on published literature, ensuring the simulated data resemble realistic student responses. Simulation also allows for a large sample size, improving the reliability of confidence intervals. To maintain reproducibility, we used set.seed(304) so results can be replicated.
+
+For the first question, “What grade are you in?”, probabilities were set using Ontario enrollment data (2023–2024), assumed to remain stable this year. For the second question, “What is the most important challenge you currently face in preparing for post-secondary?”, categories were drawn from the STEMBuddies Handbook and survey testing. We applied separate probabilities for Grades 9–10 and 11–12, following conventions in education research (People for Education, 2013). For younger students, probabilities emphasized “Course Selection and Required GPA,” reflecting challenges such as absenteeism and planning (Institute of Education Science, 2024). For senior students, weights were shifted toward “Career Interests,” “Admissions Process,” and “Financial Assistance,” consistent with Employment and Social Development Canada (2019). For the third question, “In what format would you find the High School Handbook most helpful?”, probabilities were informed by studies of learning preferences. Pearson (2019) reported that 60% of students prefer video resources over textbooks, while Kalludi et al. (2015) found 89% supported video podcasts as lecture supplements. Balancing these findings, we set a 70% probability for video formats and 30% for text formats.
+
+```{r, include = FALSE}
+
+# Data Simulation
+set.seed(304)
+
+n <- 200
+
+# Q1: Which Province are you from?
+Province <- sample(c("Ontario","Other"), size = n, replace = TRUE, prob = c(0.9, 0.1))
+
+# Q2: What grade are you in?
+Grade <- sample(c("Grade 9","Grade 10","Grade 11","Grade 12"),
+                size = n, replace = TRUE,
+                prob = c(156231, 157894, 157713, 189018))
+
+# Q3: Which of the following best describes your intended post-secondary pathway?
+Pathway <- sample(c("University","College","Workforce","Not sure"),
+                  size = n, replace = TRUE,
+                  prob = c(0.33, 0.13, 0.38, 0.16))
+
+# Q4: What is the most important challenge you currently face in preparing for post-secondary?
+challenge_levels <- c("Career Interests",
+                      "Course selection and required GPA",
+                      "Study techniques and time management",
+                      "Extracurricular and volunteer opportunities",
+                      "Admissions process",
+                      "Financial assistance",
+                      "Not sure")
+
+Challenge <- vector(length = n)
+
+for(i in 1:n){
+  if(Grade[i] %in% c("Grade 9","Grade 10")){
+    Challenge[i] <- sample(challenge_levels[1:6], size = 1, replace = TRUE, prob = c(0.2, 0.4, 0.2, 0.15, 0.025, 0.025))} 
+  else {
+    Challenge[i] <- sample(challenge_levels[1:6], size = 1, replace = TRUE,prob = c(0.30, 0.025, 0.05, 0.025, 0.25, 0.35))}
+}
+
+# Q5: In what format would you find the High School Handbook most helpful?
+Format <- sample(c("Printed/PDF text handbook",
+                   "YouTube videos"),
+                 size = n, replace = TRUE,
+                 prob = c(0.3, 0.7))
+
+# Q6: Would you be interested in learning more about universities or colleges outside of Ontario?
+OutsideOntario <- sample(c("Yes","No"), size = n, replace = TRUE, prob = c(0.08, 0.92))
+
+sim_data <- tibble(Province, Grade, Pathway, Challenge, Format, OutsideOntario)
+
+# Peek at the first few rows
+head(sim_data)
+```
+
+# 4 Data
+
+In this section, we present the simulated dataset that forms the basis of our analysis. Because the survey was not administered to actual high school students, we generated the data in R using the sample() function, assigning probabilities informed by educational literature and the STEMBuddies Handbook to ensure that the simulated responses are realistic. The dataset contains 300 students, and we applied a fixed random seed (set.seed(304)) to guarantee reproducibility. While no raw cleaning was necessary, we standardized factor labels and ordered categories consistently so that the variables could be analyzed without ambiguity.
+
+Our analysis focuses on two main variables that directly align with the survey questions highlighted earlier. The first is Challenge, which captures the most important barrier students face in preparing for post-secondary. This categorical variable includes six levels: Career interests, course selection and required GPA, extracurricular and volunteer opportunities, financial assistance (scholarships, bursaries, OSAP), admissions process (OUAC, supplementary applications) and study techniques and time management.. The second is Format Preference, which identifies how students would like to access the handbook, with two levels: PDF text handbook and YouTube videos.. Both variables are categorical with clearly defined levels, making them well suited for frequency tables, bar charts, and proportion estimates.
+
+Summarizing the data provides meaningful insights into student needs. To reflect differences across age groups, probabilities were stratified so that Grades 9–10 leaned toward course selection while Grades 11–12 leaned toward admissions and financial assistance. For the Challenge variable, financial assistance and admissions emerged as the most frequently selected options, particularly among senior students (Grades 11–12), while younger students (Grades 9–10) were more likely to select course selection. For the Format Preference variable, a clear majority of students expressed a preference for video-based resources, with relatively few choosing text or audio-only formats. These results are consistent with prior findings in the literature and provide actionable guidance on where the handbook could be strengthened. To illustrate these patterns, Figure 1 presents a bar chart of the Challenge categories, and Figure 2 summarizes the Format Preference responses, highlighting the dominance of video formats.
+
+These descriptive summaries set the stage for our inferential analysis. Simple percentages can suggest which challenges or formats are most common, but they do not capture the uncertainty inherent in any dataset. By calculating confidence intervals for selected proportions—such as the percentage of students who report financial assistance as their primary challenge or the proportion who prefer video resources—we provide a more precise understanding of these results. This step is important because it allows us to generalize beyond our simulated sample and gives STEMBuddies a stronger, evidence-based foundation for decisions about which handbook sections and delivery formats to prioritize.
+
+```{r, include = FALSE}
+# Here you can clean your data (if needed). 
+```
+
+```{r, echo = FALSE}
+library(dplyr)
+library(ggplot2)
+# Pie chart of Format preferences
+sim_data %>%
+  count(Format) %>%
+  ggplot(aes(x = "", y = n, fill = Format)) +
+  geom_col(width = 1, color = "white") +
+  coord_polar(theta = "y") +
+  labs(title = "Preferred Format for the STEMBuddies Handbook",
+       fill = "Format") +
+  theme_void()
+
+
+# Bar graphs of what students consider the greatest challenge in pursuing post-secondary education per grade.
+
+# Create a new variable that groups grades
+sim_data <- sim_data %>%
+  mutate(GradeGroup = ifelse(Grade %in% c("Grade 9", "Grade 10"), 
+                             "Grades 9–10", 
+                             "Grades 11–12"))
+
+ggplot(sim_data, aes(x = Challenge)) +
+  geom_bar(fill = "steelblue") +
+  facet_wrap(~ GradeGroup) +
+  labs(
+    title = "Most Important Challenge in Preparing for Post-Secondary by Grade Group",
+    x = "Challenge",
+    y = "Number of Students"
+  ) +
+  theme(axis.text.x = element_text(angle = 25, hjust = 1))
+
+```
+
+# 5 Methods
+
+We will be using Confidence Intervals (CIs) to estimate the range of plausible values for our parameter of interest. A CI builds a “margin of error” around the estimate we calculate from the data, showing how much uncertainty is attached to that estimate. In our case, we are interested in the proportion of Ontario students who would prefer the Handbook in video format. Since our sample size is large enough (n=180 Ontario students), we can use the formula for a CI based on the Normal distribution rather than more computational methods like bootstrapping.
+
+The formula for a confidence interval is: $$\hat{p} \pm z_{\alpha/2} \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}}$$ Where:
+
+-   $\hat{p}$ refers to the percentage of students who prefer Video format we observed in the data, 71.6%.
+-   $n$ refers to the sample size, which after removing non-Ontario students is 180.
+-   $z_{\alpha/2}$ is the critical value from the Normal distribution that tells us how many standard errors we need to go above and below our estimate to capture the desired confidence level. In our case, this is 1.96, which corresponds to $\alpha=0.05$
+
+# 6 Results
+
+```{r, include = FALSE}
+# Filter Ontario students
+ontario_data <- sim_data %>% 
+  filter(Province == "Ontario")
+
+# Sample size
+n <- nrow(ontario_data)
+
+# Count number preferring text
+x <- sum(ontario_data$Format == "YouTube videos")
+
+# Sample proportion
+p_hat <- x / n
+
+# 95% confidence interval (normal approx)
+z <- qnorm(0.975)  # critical value for 95%
+ci_lower <- p_hat - z * sqrt((p_hat * (1 - p_hat)) / n)
+ci_upper <- p_hat + z * sqrt((p_hat * (1 - p_hat)) / n)
+
+c(n, p_hat, ci_lower, ci_upper)
+
+```
+
+In Table 1, we present the 95% confidence interval for the proportion of Ontario high school students who would prefer the STEMBuddies Handbook in a video format. The interval ranges from 0.65 to 0.78, meaning that if we were to repeatedly sample students in the same way, about 95% of those intervals would capture the true population proportion. In practical terms, we can be reasonably confident that between 65% and 78% of Ontario high school students prefer the Handbook in a video format over text. This finding has direct implications for STEMBuddies: the strong preference for video-based resources suggests that expanding the Handbook beyond a static text or PDF version could substantially increase its usefulness and accessibility. While the existing content is valuable, adapting it into video explainers or step-by-step guides would better align with student needs, ensuring the Handbook fulfills its goal of supporting students in navigating their post-secondary pathways.
+
+|                                                | Proportion of Outcome Variable | 95% Confidence Interval of Outcome Variable |
+|------------------------------------------------|--------------------------------|---------------------------------------------|
+| Proportion of students who prefer Video format | 0.71                           | (0.65, 0.78)                                |
+
+: The proportions and 95% confidence intervals of outcome variable of interest calculated for the proportion of students that would prefer the Handbook in Video format.
+
+# 7 Generative AI Statement
+
+Here is where you can explain your usage of Generative AI tool(s). Be sure to reference it.
+
+Alternatively, if you did not use Generative AI, please include a brief statement outlining your workflow for completing this assignment.
+
+# 8 Bibliography
+
+1.  Schwartz, B. M., Landrum, R. E., & Gurung, R. A. (2020). *An easyguide to APA style*. Sage Publications.
+
+2.  Dekking, F. M., et al. (2005) *A Modern Introduction to Probability and Statistics: Understanding why and how.* Springer Science & Business Media.
+
+3.  Allaire, J.J., et. el. *References: Introduction to R Markdown*. RStudio. <https://rmarkdown.rstudio.com/docs/>. (Last Accessed: April 4, 1991)
+
+# 9 Appendix
+
+## 9.1 Survey questions
+
+Below is a well formatted copy of all of my survey questions (along with the opening and closing messages/statements).
+
+## 9.2 Simulated Survey Data
+
+Below is a `glimpse()` or `head()` of my simulated data (this should be the data that looks like the inputs from your survey). This is the only place in the report where you can show your raw R code and output.
+
+```{r, echo=TRUE}
+head(sim_data)
+```
+
+## 9.3 Supplementary Materials
+
+Any other supplementary items you wish to include (e.g., more plots, derivations, etc.) can be in this sub section.
